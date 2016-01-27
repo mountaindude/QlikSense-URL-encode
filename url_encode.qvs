@@ -16,7 +16,7 @@
 
 
 // Create mapping table for conversion from utf8 to URL encoded
-URL_EncodingReferenceMap:
+URL_EncodingMap:
 Mapping LOAD
     Replace([Character], 'space', ' ') as ASCII_Character,
     //Text([From Windows-1252]) as URL_encoding,
@@ -28,5 +28,5 @@ FROM
 
 let vMessage = 'Test string including special characters such as #/|\ÅÄÖ';
 trace $(vMessage);
-let vMessageNew = MapSubstring('URL_EncodingReferenceMap', '$(vMessage)');
+let vMessageNew = MapSubstring('URL_EncodingMap', '$(vMessage)');
 trace $(vMessageNew);
